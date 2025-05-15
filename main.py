@@ -15,6 +15,11 @@ import threading
 # ✅ First, define the app
 app = FastAPI()
 
+origins = [
+    "http://localhost:3000",  # Allow your local development frontend
+    "https://data-weave-frontend.vercel.app/", # Add your deployed frontend URL (e.g., your Netlify or Vercel URL),"*", #dangerous in production
+]
+
 class SelectionRequest(BaseModel):
     url: str
     max_pages: int
